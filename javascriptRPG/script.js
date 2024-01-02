@@ -16,27 +16,37 @@ const goldText = document.querySelector('#goldText');
 const monsterStats = document.querySelector('#monsterStats');
 const monsterNameText = document.querySelector('#monsterName');
 const monsterHealthText = document.querySelector('#monsterHealth');
+
 const locations = [
     {
-
     name: "town square",
-    "button text" : ["Go to store", "Go to cave", "Fight dragon"],
-    "button functions" : [goStore, goCave, fightDragon],
+    "button text": ["Go to store", "Go to cave", "Fight dragon"],
+    "button functions": [goStore, goCave, fightDragon],
     text: "You are in the town square. You see a sign that says \"store.\""
+},
+{
+    name: "store",
+    "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
+    "button functions": [buyHealth, buyWeapon, goTown],
+    text: "You enter the store."
 },
 
 {
-    name: "store",
-    "button text" : ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
-    "button functions" : [buyHealth, buyWeapon, goTown],
-    text: "You enter the store."
-
+    name: "cave",
+    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+    "button functions": [buyHealth, buyWeapon, goTown],
+    text: "You enter the cave. You see some monsters."
 }
+]
 
-];
+// inintalize buttons
+
+button1.onclick = goStore;
+button2.onclick = goCave;
+button3.onclick = fightDragon;
 
 function update(location){
-
+    
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
     button3.innerText = location["button text"][2];
@@ -47,12 +57,6 @@ function update(location){
     
 }
 
-// inintalize buttons
-
-// button1.onclick = goStore;
-// button2.onclick = goCave;
-// button3.onclick = fightDragon;
-
 function goTown() {
 
     update(locations[0]);
@@ -60,12 +64,13 @@ function goTown() {
 
 function goStore() {
 
-update(locations[1]);
-}
+    update(locations[1]);
+    }
+    
 
 function goCave() {
 
-    console.log("Going to Cave");
+    update(locations[2]);
 
 }
 function fightDragon() {
@@ -74,13 +79,23 @@ function fightDragon() {
 
 }
 function buyHealth() {
-
-    console.log("You bought health for 10 golds");
-
+    if(gold>=10){
+    gold = gold-10
+    goldText.innerText = gold;
+    health = health+10;
+    healthText.innerText = health;
+    }
+    else{
+        text.innerText = "You dont have enough gold"
+    }
 }
 function buyWeapon() {
 
     console.log("You bought weapon for 30 golds");
+
+}
+
+function fightSlime(){
 
 }
 
