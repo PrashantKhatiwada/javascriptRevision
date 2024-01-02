@@ -17,6 +17,26 @@ const monsterStats = document.querySelector('#monsterStats');
 const monsterNameText = document.querySelector('#monsterName');
 const monsterHealthText = document.querySelector('#monsterHealth');
 
+const weapons = [
+
+    {
+        name: "stick",
+        power: 5
+    },
+    {
+        name: "dagger",
+        power: 30
+    },
+    {
+        name: "claw hammer",
+        power: 50
+    },
+    {
+        name: "sword",
+        power: 100
+    }
+];
+
 const locations = [
     {
     name: "town square",
@@ -80,9 +100,9 @@ function fightDragon() {
 }
 function buyHealth() {
     if(gold>=10){
-    gold = gold-10
+    gold -=10;
+    health += 10;
     goldText.innerText = gold;
-    health = health+10;
     healthText.innerText = health;
     }
     else{
@@ -91,7 +111,13 @@ function buyHealth() {
 }
 function buyWeapon() {
 
-    console.log("You bought weapon for 30 golds");
+    if(gold>=30){
+
+        gold -=30;
+        currentWeapon+=1;
+        gold.innerText = gold;
+        text.innerText = "You bought a new weapon"
+    }
 
 }
 
