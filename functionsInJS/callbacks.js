@@ -11,14 +11,20 @@ function add(num1, num2, callback) {
 
 add(10, 20, display);
 
-
 // Anonymous functions in JavaScript
 
-let sum = function (x, y){
-
-    return x+y;
-
-}
-
+let sum = function (x, y) {
+  return x + y;
+};
 
 console.log(sum(10, 30));
+
+(function(){
+    console.log("Hello world");
+})();
+
+
+
+setTimeout(function(){
+  console.log("Hello world");
+}, 3000 )
