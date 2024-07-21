@@ -19,12 +19,10 @@ let sum = function (x, y) {
 
 console.log(sum(10, 30));
 
-(function(){
-    console.log("Hello world");
+(function () {
+  console.log("Hello world");
 })();
 
-
-
-setTimeout(function(){
+setTimeout(function () {
   console.log("Hello world");
-}, 3000 )
+}, 3000);
