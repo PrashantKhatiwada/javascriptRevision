@@ -43,3 +43,5 @@ const bird = new Object({
 });
 
 console.log(bird);
+// console.log(person[0]);
+
